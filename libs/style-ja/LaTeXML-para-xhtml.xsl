@@ -54,7 +54,7 @@
 <xsl:template match="ltx:figure/ltx:caption" xml:space="preserve">
   <div class='{f:classes(.)}'>
     <xsl:if test="../@refnum">
-      Figure <xsl:apply-templates select="../@refnum"/><xsl:text>. </xsl:text>
+      図 <xsl:apply-templates select="../@refnum"/><xsl:text>. </xsl:text>
     </xsl:if>
     <xsl:apply-templates/>
   </div>
@@ -63,7 +63,7 @@
 <xsl:template match="ltx:table/ltx:caption" xml:space="preserve">
   <div class='{f:classes(.)}'>  
     <xsl:if test="../@refnum">
-      Table <xsl:apply-templates select="../@refnum"/><xsl:text>. </xsl:text>
+      表 <xsl:apply-templates select="../@refnum"/><xsl:text>. </xsl:text>
     </xsl:if>
     <xsl:apply-templates/>
   </div>
@@ -72,7 +72,7 @@
 <xsl:template match="ltx:listing/ltx:caption" xml:space="preserve">
   <div class='{f:classes(.)}'>
     <xsl:if test="../@refnum">
-      Listing <xsl:apply-templates select="../@refnum"/><xsl:text>. </xsl:text>
+      ソースコード <xsl:apply-templates select="../@refnum"/><xsl:text>. </xsl:text>
     </xsl:if>
     <xsl:apply-templates/>
   </div>
