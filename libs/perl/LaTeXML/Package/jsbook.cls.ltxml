@@ -11,6 +11,7 @@
 # | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
 # \=========================================================ooo==U==ooo=/ #
 # Modified 2010 Kenshi Muto <kmuto@debian.org>
+# Modified 2013 Shogo Ichinose <shogo82148@gmail.com>
 use strict;
 use LaTeXML::Package;
 package LaTeXML::Package::Pool;
@@ -18,8 +19,14 @@ package LaTeXML::Package::Pool;
 
 #**********************************************************************
 # Option handling
-foreach my $option (qw(10pt 11pt 12pt 
-		       letterpaper legalpaper executivepaper a4paper a5paper b5paper
+foreach my $option (qw(slide 8pt 9pt 10pt 11pt 12pt 14pt 17pt 20pt
+		       21pt 25pt 30pt 36pt 43pt 12Q 14Q
+		       letterpaper legalpaper executivepaper
+		       a3paper a4paper a5paper a6paper
+		       b4paper b5paper b6paper
+		       a4j a5j b4j b5j a4var b5var
+		       tombow tombo mentuke report
+		       mingoth winjis jis uplatex english
 		       landscape
 		       final draft
 		       oneside twoside
@@ -41,6 +48,18 @@ RawTeX(<<'EOTeX');
 \newif\if@titlepage
 \@titlepagefalse
 EOTeX
+
+DefMacro('\prepartname', '第');
+DefMacro('\postpartname', '部');
+DefMacro('\contentsname', '目 次');
+DefMacro('\listfigurename', '図 目 次');
+DefMacro('\listtablename', '表 目 次');
+DefMacro('\refname', '参考文献');
+DefMacro('\indexname', '索 引');
+DefMacro('\figurename', '図');
+DefMacro('\tablename', '表');
+DefMacro('\appendixname', '付 録');
+DefMacro('\abstractname', '概 要');
 
 #**********************************************************************
 # The core sectioning commands are defined in LaTeX.pm
